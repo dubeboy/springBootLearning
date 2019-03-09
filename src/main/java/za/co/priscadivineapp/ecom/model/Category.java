@@ -1,18 +1,24 @@
 package za.co.priscadivineapp.ecom.model;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Category {
 
-    private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    @Column(unique = true)
     private String name;
+    @OneToMany
     private List<Brand> brands;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

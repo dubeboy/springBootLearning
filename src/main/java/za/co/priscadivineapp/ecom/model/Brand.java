@@ -1,9 +1,16 @@
 package za.co.priscadivineapp.ecom.model;
 
-public class Brand {
+import javax.persistence.*;
 
+@Entity
+public class Brand {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+
+    // Category is the entity class
+    @ManyToOne
     private Category category;
 
 
